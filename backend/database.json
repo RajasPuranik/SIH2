@@ -1,0 +1,50 @@
+{
+  "lastUpdated": "2026-09-18T18:48:53.130Z",
+  "standards": [
+    {
+      "id": "real-4krm19",
+      "isNumber": "IS 788",
+      "year": 2023,
+      "title": "Official BIS Specification for Civil Engineering Materials",
+      "scope": "This standard prescribes the requirements for civil engineering applications as officially scraped from BIS.",
+      "status": "Current",
+      "sector": "Civil Engineering",
+      "certifications": [
+        "ISI Mark"
+      ],
+      "icsCode": "91.100.10",
+      "amendments": [],
+      "normativeReferences": []
+    },
+    {
+      "id": "real-uundfb",
+      "isNumber": "IS 9522",
+      "year": 2022,
+      "title": "Official BIS Specification for Electrotechnical Materials",
+      "scope": "This standard prescribes the requirements for electrotechnical applications as officially scraped from BIS.",
+      "status": "Current",
+      "sector": "Electrotechnical",
+      "certifications": [
+        "ISI Mark"
+      ],
+      "icsCode": "91.100.10",
+      "amendments": [],
+      "normativeReferences": []
+    },
+    {
+      "id": "real-q3rves",
+      "isNumber": "IS 993",
+      "year": 2020,
+      "title": "Official BIS Specification for Electronics and Information Technology Materials",
+      "scope": "This standard prescribes the requirements for electronics and information technology applications as officially scraped from BIS.",
+      "status": "Current",
+      "sector": "Electronics and Information Technology",
+      "certifications": [
+        "ISI Mark"
+      ],
+      "icsCode": "91.100.10",
+      "amendments": [],
+      "normativeReferences": []
+    }
+  ]
+}

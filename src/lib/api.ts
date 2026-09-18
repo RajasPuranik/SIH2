@@ -119,55 +119,34 @@ export async function searchStandards(
   query: string,
   filters?: Partial<FilterState>
 ): Promise<SearchResult[]> {
-  await delay(400, 800);
-
-  if (!query.trim()) return [];
-
-  let results = standards.map(standard => {
-    const { score, reason, phrases } = computeMatchScore(query, standard);
-    return {
-      standard,
-      matchScore: score,
-      matchReason: reason,
-      highlightedPhrases: phrases,
-    } satisfies SearchResult;
-  });
-
-  // Apply filters
-  if (filters) {
-    if (filters.sectors && filters.sectors.length > 0) {
-      results = results.filter(r => filters.sectors!.includes(r.standard.sector));
+  try {
+    const url = new URL('http://localhost:3001/api/standards/search');
+    url.searchParams.append('q', query);
+    
+    if (filters && filters.sectors && filters.sectors.length > 0) {
+      url.searchParams.append('sector', filters.sectors.join(','));
     }
-    if (filters.statuses && filters.statuses.length > 0) {
-      results = results.filter(r => filters.statuses!.includes(r.standard.status));
-    }
-    if (filters.certifications && filters.certifications.length > 0) {
-      results = results.filter(r =>
-        r.standard.certifications.some(c => filters.certifications!.includes(c))
-      );
-    }
-    if (filters.icsCodes && filters.icsCodes.length > 0) {
-      results = results.filter(r => filters.icsCodes!.includes(r.standard.icsCode));
-    }
-    if (filters.yearRange) {
-      results = results.filter(
-        r => r.standard.year >= filters.yearRange![0] && r.standard.year <= filters.yearRange![1]
-      );
-    }
+    
+    const res = await fetch(url.toString());
+    if (!res.ok) throw new Error('Network response was not ok');
+    return await res.json();
+  } catch (err) {
+    console.error('Search error:', err);
+    return [];
   }
-
-  // Sort by score descending
-  results.sort((a, b) => b.matchScore - a.matchScore);
-
-  // Only return results with a reasonable score
-  return results.filter(r => r.matchScore > 0.1);
 }
 
 // ── Get single standard ─────────────────────────────────────────────
 
 export async function getStandard(id: string): Promise<Standard | null> {
-  await delay(200, 500);
-  return standards.find(s => s.id === id) ?? null;
+  try {
+    const res = await fetch(`http://localhost:3001/api/standards/${id}`);
+    if (!res.ok) throw new Error('Not found');
+    return await res.json();
+  } catch (err) {
+    console.error('Detail fetch error:', err);
+    return null;
+  }
 }
 
 // ── Chat / RAG streaming ────────────────────────────────────────────
@@ -254,15 +233,28 @@ export async function detectLanguage(text: string): Promise<{
 // ── Admin stats ─────────────────────────────────────────────────────
 
 export async function getAdminStats(): Promise<AdminStats> {
-  await delay(300, 600);
-  return {
-    lastSyncTimestamp: '2026-09-18T14:30:00Z',
-    totalRecords: 23847,
-    embeddingIndexFreshness: '2 hours ago',
-    catalogVersion: 'v2026.09',
-    recordsIngested: 23847,
-    pendingUpdates: 42,
-  };
+  try {
+    const res = await fetch('http://localhost:3001/api/health');
+    const health = await res.json();
+    return {
+      lastSyncTimestamp: health.lastSync || 'Never',
+      totalRecords: health.totalStandards || 0,
+      embeddingIndexFreshness: 'Just now',
+      catalogVersion: 'v2026.09',
+      recordsIngested: health.totalStandards || 0,
+      pendingUpdates: 0,
+    };
+  } catch (err) {
+    console.error('Health fetch error:', err);
+    return {
+      lastSyncTimestamp: 'Unknown',
+      totalRecords: 0,
+      embeddingIndexFreshness: 'Unknown',
+      catalogVersion: 'Unknown',
+      recordsIngested: 0,
+      pendingUpdates: 0,
+    };
+  }
 }
 
 export async function* triggerSync(): AsyncGenerator<{ progress: number; status: string }> {
