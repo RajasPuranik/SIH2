@@ -29,7 +29,12 @@ export const SearchHero: React.FC = () => {
   const handleSubmit = (e?: React.FormEvent) => {
     e?.preventDefault();
     if (!query.trim()) return;
-    navigate(`/results?q=${encodeURIComponent(query.trim())}`);
+    const urlParams = new URLSearchParams();
+    urlParams.set('q', query.trim());
+    if (language !== 'en') {
+      urlParams.set('lang', language);
+    }
+    navigate(`/results?${urlParams.toString()}`);
   };
 
   const handleKeyDown = (e: React.KeyboardEvent) => {

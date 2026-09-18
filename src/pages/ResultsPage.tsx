@@ -29,8 +29,20 @@ export function ResultsPage() {
   const [showCompare, setShowCompare] = useState(false);
   const [detectedLanguage, setDetectedLanguage] = useState<string | null>(null);
 
-  // Check if query contains non-Latin characters (simulating translation)
+  const langMap: Record<string, string> = {
+    hi: 'Hindi',
+    bn: 'Bengali',
+    ta: 'Tamil',
+    mr: 'Marathi'
+  };
+
   useEffect(() => {
+    const langParam = searchParams.get('lang');
+    if (langParam && langMap[langParam]) {
+      setDetectedLanguage(langMap[langParam]);
+      return;
+    }
+
     if (/[\u0900-\u097F]/.test(query)) {
       setDetectedLanguage('Hindi');
     } else if (/[\u0980-\u09FF]/.test(query)) {
@@ -40,7 +52,7 @@ export function ResultsPage() {
     } else {
       setDetectedLanguage(null);
     }
-  }, [query]);
+  }, [query, searchParams]);
 
   const doSearch = useCallback(async () => {
     if (!query.trim()) {
