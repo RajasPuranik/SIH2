@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { Search } from 'lucide-react';
 import { LanguageSelector } from './LanguageSelector';
 import { FileDropZone } from './FileDropZone';
+import { useLanguage } from '../../hooks/useLanguage';
 
 const EXAMPLE_CHIPS = [
   'LED street lighting luminaires, 90W, IP66',
@@ -14,7 +15,7 @@ const EXAMPLE_CHIPS = [
 
 export const SearchHero: React.FC = () => {
   const [query, setQuery] = useState('');
-  const [language, setLanguage] = useState('en');
+  const { language, setLanguage, t } = useLanguage();
   const navigate = useNavigate();
   const textareaRef = useRef<HTMLTextAreaElement>(null);
 
@@ -54,10 +55,10 @@ export const SearchHero: React.FC = () => {
       <div className="relative z-10 flex flex-col items-center space-y-8">
         <div className="text-center">
           <h1 className="mb-4 text-4xl font-bold tracking-tight text-zinc-900 dark:text-zinc-50 sm:text-5xl">
-            Find Standards Faster
+            {t('search.title')}
           </h1>
           <p className="text-lg text-zinc-500 dark:text-zinc-400">
-            Search with technical specs, item descriptions, or upload a tender document.
+            {t('search.subtitle')}
           </p>
         </div>
 
@@ -68,7 +69,7 @@ export const SearchHero: React.FC = () => {
               value={query}
               onChange={(e) => setQuery(e.target.value)}
               onKeyDown={handleKeyDown}
-              placeholder="Paste your tender specification or describe the item to be procured..."
+              placeholder={t('search.placeholder')}
               className="min-h-[100px] w-full resize-none rounded-t-2xl bg-transparent p-4 pb-12 text-base text-zinc-900 placeholder:text-zinc-400 focus:outline-none dark:text-zinc-100"
               aria-label="Search query"
             />
@@ -110,13 +111,13 @@ export const SearchHero: React.FC = () => {
           />
           <div className="flex flex-col justify-center rounded-xl border border-zinc-200 bg-white p-6 dark:border-zinc-800 dark:bg-zinc-900">
             <h3 className="mb-2 text-sm font-medium text-zinc-900 dark:text-zinc-100">
-              Regional Language Support
+              {t('search.regional.title')}
             </h3>
             <p className="mb-4 text-xs text-zinc-500 dark:text-zinc-400">
-              Search Indian Standards using descriptions in your native language.
+              {t('search.regional.desc')}
             </p>
             <div className="mt-auto flex justify-start">
-              <LanguageSelector selectedLanguage={language} onLanguageChange={setLanguage} />
+              <LanguageSelector selectedLanguage={language} onLanguageChange={setLanguage as any} />
             </div>
           </div>
         </div>

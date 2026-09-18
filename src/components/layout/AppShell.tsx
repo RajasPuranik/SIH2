@@ -5,12 +5,14 @@ import { useTheme } from '../../hooks/useTheme';
 import { useChat } from '../../hooks/useChat';
 import { ChatPanel } from '../chat/ChatPanel';
 import { CommandPalette } from '../common/CommandPalette';
+import { useLanguage } from '../../hooks/useLanguage';
 import { useState } from 'react';
 
 export function AppShell() {
   const { theme, toggleTheme } = useTheme();
   const { itemCount } = useBasket();
   const { openPanel } = useChat();
+  const { t } = useLanguage();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
@@ -23,16 +25,16 @@ export function AppShell() {
           </Link>
           
           <nav className="hidden sm:flex items-center gap-4 text-sm font-medium">
-            <Link to="/" className="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">Home</Link>
+            <Link to="/" className="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">{t('nav.home')}</Link>
             <Link to="/basket" className="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors flex items-center gap-1">
-              Basket
+              {t('nav.basket')}
               {itemCount > 0 && (
                 <span className="bg-indigo-600 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center tabular-nums">
                   {itemCount}
                 </span>
               )}
             </Link>
-            <Link to="/admin" className="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">Admin</Link>
+            <Link to="/admin" className="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">{t('nav.admin')}</Link>
           </nav>
         </div>
 
@@ -58,16 +60,16 @@ export function AppShell() {
 
       {mobileMenuOpen && (
         <div className="fixed top-16 left-0 right-0 border-b border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 z-30 p-4 flex flex-col gap-4 sm:hidden">
-          <Link to="/" onClick={() => setMobileMenuOpen(false)} className="font-medium">Home</Link>
+          <Link to="/" onClick={() => setMobileMenuOpen(false)} className="font-medium">{t('nav.home')}</Link>
           <Link to="/basket" onClick={() => setMobileMenuOpen(false)} className="font-medium flex items-center gap-2">
-            Basket
+            {t('nav.basket')}
             {itemCount > 0 && (
               <span className="bg-indigo-600 text-white text-xs rounded-full px-2 py-0.5 tabular-nums">
                 {itemCount}
               </span>
             )}
           </Link>
-          <Link to="/admin" onClick={() => setMobileMenuOpen(false)} className="font-medium">Admin</Link>
+          <Link to="/admin" onClick={() => setMobileMenuOpen(false)} className="font-medium">{t('nav.admin')}</Link>
         </div>
       )}
 

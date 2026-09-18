@@ -1,6 +1,7 @@
 import { SearchHero } from '../components/search/SearchHero';
 import { motion } from 'framer-motion';
 import { BookOpen, Shield, Zap, Search } from 'lucide-react';
+import { useLanguage } from '../hooks/useLanguage';
 
 const features = [
   {
@@ -26,6 +27,8 @@ const features = [
 ];
 
 export function HomePage() {
+  const { t } = useLanguage();
+
   return (
     <div className="min-h-[calc(100vh-4rem)]">
       {/* Hero Section */}
@@ -44,13 +47,12 @@ export function HomePage() {
             className="text-center mb-10"
           >
             <h1 className="text-4xl font-bold tracking-tight text-zinc-900 dark:text-zinc-100 sm:text-5xl">
-              Find the right{' '}
-              <span className="text-indigo-600 dark:text-indigo-400">Indian Standard</span>
-              {' '}for every tender
+              {t('hero.title.start')}{' '}
+              <span className="text-indigo-600 dark:text-indigo-400">{t('hero.title.highlight')}</span>
+              {' '}{t('hero.title.end')}
             </h1>
             <p className="mt-4 text-lg text-zinc-500 dark:text-zinc-400 max-w-2xl mx-auto">
-              AI-powered BIS standard recommendations, certification guidance, and
-              cross-reference intelligence for government procurement.
+              {t('hero.subtitle')}
             </p>
           </motion.div>
 
