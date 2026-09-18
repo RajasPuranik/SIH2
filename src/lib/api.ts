@@ -115,12 +115,15 @@ function computeMatchScore(query: string, standard: Standard): {
   return { score, reason, phrases: phrases.length > 0 ? phrases : [standard.title.split('—')[0].trim()] };
 }
 
+const IS_LOCAL = typeof window !== 'undefined' && window.location.hostname === 'localhost';
+const API_BASE = IS_LOCAL ? 'http://localhost:3001/api' : '/api';
+
 export async function searchStandards(
   query: string,
   filters?: Partial<FilterState>
 ): Promise<SearchResult[]> {
   try {
-    const url = new URL('http://localhost:3001/api/standards/search');
+    const url = new URL(`${API_BASE}/search`, IS_LOCAL ? undefined : window.location.origin);
     url.searchParams.append('q', query);
     
     if (filters && filters.sectors && filters.sectors.length > 0) {
@@ -140,7 +143,12 @@ export async function searchStandards(
 
 export async function getStandard(id: string): Promise<Standard | null> {
   try {
-    const res = await fetch(`http://localhost:3001/api/standards/${id}`);
+    // Note: Localhost uses /api/standards/:id (Express), Vercel uses /api/standard?id=:id
+    const url = IS_LOCAL 
+      ? `${API_BASE}/standards/${id}`
+      : `${API_BASE}/standard?id=${id}`;
+      
+    const res = await fetch(url);
     if (!res.ok) throw new Error('Not found');
     return await res.json();
   } catch (err) {
@@ -234,7 +242,7 @@ export async function detectLanguage(text: string): Promise<{
 
 export async function getAdminStats(): Promise<AdminStats> {
   try {
-    const res = await fetch('http://localhost:3001/api/health');
+    const res = await fetch(IS_LOCAL ? 'http://localhost:3001/api/health' : '/api/health');
     const health = await res.json();
     return {
       lastSyncTimestamp: health.lastSync || 'Never',

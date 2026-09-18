@@ -48,7 +48,7 @@ app.get('/api/health', async (req, res) => {
 });
 
 // 2. Search standards (The Core Endpoint)
-app.get('/api/standards/search', async (req, res) => {
+app.get(['/api/standards/search', '/api/search'], async (req, res) => {
   const query = req.query.q?.toLowerCase() || '';
   const sectorFilter = req.query.sector ? req.query.sector.split(',') : [];
   
@@ -98,9 +98,10 @@ app.get('/api/standards/search', async (req, res) => {
 });
 
 // 3. Get single standard detail
-app.get('/api/standards/:id', async (req, res) => {
+app.get(['/api/standards/:id', '/api/standard'], async (req, res) => {
   const db = await getDatabase();
-  const standard = db.standards.find(s => s.id === req.params.id);
+  const id = req.params.id || req.query.id;
+  const standard = db.standards.find(s => s.id === id);
   
   if (!standard) {
     return res.status(404).json({ error: 'Standard not found' });
