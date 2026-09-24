@@ -11,10 +11,8 @@ module.exports = (req, res) => {
   }
 
   try {
-    // Read the static JSON file
-    const dbPath = path.join(process.cwd(), 'backend', 'database.json');
-    const dbData = fs.readFileSync(dbPath, 'utf8');
-    const db = JSON.parse(dbData);
+    // Read the static JSON file directly via require so Vercel bundles it
+    const db = require('../backend/database.json');
 
     const query = (req.query.q || '').toLowerCase();
     const sectorFilter = req.query.sector ? req.query.sector.split(',') : [];
