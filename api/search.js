@@ -1,4 +1,4 @@
-import db from '../backend/database.json' with { type: 'json' };
+import db from '../backend/db.js';
 
 export default function handler(req, res) {
   // CORS Headers for local development
