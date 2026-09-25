@@ -1,12 +1,9 @@
-const fs = require('fs');
-const path = require('path');
+import db from '../backend/database.json' with { type: 'json' };
 
-module.exports = (req, res) => {
+export default function handler(req, res) {
   res.setHeader('Access-Control-Allow-Origin', '*');
 
   try {
-    const db = require('../backend/database.json');
-    
     return res.status(200).json({
       status: 'online',
       lastSync: db.lastUpdated,
@@ -16,4 +13,4 @@ module.exports = (req, res) => {
   } catch (error) {
     return res.status(500).json({ error: 'Database unavailable' });
   }
-};
+}

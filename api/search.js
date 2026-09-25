@@ -1,7 +1,6 @@
-const fs = require('fs');
-const path = require('path');
+import db from '../backend/database.json' with { type: 'json' };
 
-module.exports = (req, res) => {
+export default function handler(req, res) {
   // CORS Headers for local development
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Methods', 'GET,OPTIONS');
@@ -11,9 +10,6 @@ module.exports = (req, res) => {
   }
 
   try {
-    // Read the static JSON file directly via require so Vercel bundles it
-    const db = require('../backend/database.json');
-
     const query = (req.query.q || '').toLowerCase();
     const sectorFilter = req.query.sector ? req.query.sector.split(',') : [];
     
@@ -62,4 +58,4 @@ module.exports = (req, res) => {
     console.error('API Error:', error);
     return res.status(500).json({ error: 'Failed to search standards' });
   }
-};
+}

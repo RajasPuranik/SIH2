@@ -1,12 +1,9 @@
-const fs = require('fs');
-const path = require('path');
+import db from '../backend/database.json' with { type: 'json' };
 
-module.exports = (req, res) => {
+export default function handler(req, res) {
   res.setHeader('Access-Control-Allow-Origin', '*');
 
   try {
-    const db = require('../backend/database.json');
-
     const id = req.query.id;
     const standard = db.standards.find(s => s.id === id);
     
@@ -19,4 +16,4 @@ module.exports = (req, res) => {
     console.error('API Error:', error);
     return res.status(500).json({ error: 'Failed to fetch standard' });
   }
-};
+}
