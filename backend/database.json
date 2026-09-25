@@ -306,6 +306,161 @@
       "icsCode": "59.080.30",
       "amendments": [],
       "normativeReferences": []
+    },
+    {
+      "id": "is-456",
+      "isNumber": "IS 456",
+      "year": 2000,
+      "title": "Plain and Reinforced Concrete - Code of Practice",
+      "scope": "This standard deals with the general structural use of plain and reinforced concrete. It is the most widely used code for civil engineering projects in India.",
+      "status": "Current",
+      "sector": "Civil Engineering",
+      "certifications": [],
+      "icsCode": "91.100.30",
+      "amendments": [
+        "Amd 1",
+        "Amd 2",
+        "Amd 3"
+      ],
+      "normativeReferences": [
+        "IS 1489",
+        "IS 1786"
+      ]
+    },
+    {
+      "id": "is-1786",
+      "isNumber": "IS 1786",
+      "year": 2008,
+      "title": "High Strength Deformed Steel Bars and Wires for Concrete Reinforcement",
+      "scope": "This standard covers the requirements of deformed steel bars and wires for use as reinforcement in concrete, commonly known as TMT bars.",
+      "status": "Current",
+      "sector": "Metallurgical Engineering",
+      "certifications": [
+        "ISI Mark"
+      ],
+      "icsCode": "77.140.15",
+      "amendments": [],
+      "normativeReferences": []
+    },
+    {
+      "id": "is-2062",
+      "isNumber": "IS 2062",
+      "year": 2011,
+      "title": "Hot Rolled Medium and High Tensile Structural Steel - Specification",
+      "scope": "This standard covers the requirements for steel plates, sections, and bars used for structural purposes.",
+      "status": "Current",
+      "sector": "Metallurgical Engineering",
+      "certifications": [
+        "ISI Mark"
+      ],
+      "icsCode": "77.140.01",
+      "amendments": [],
+      "normativeReferences": []
+    },
+    {
+      "id": "is-1293",
+      "isNumber": "IS 1293",
+      "year": 2019,
+      "title": "Plugs and Socket-Outlets of Rated Voltage up to and including 250 Volts and Rated Current up to and including 16 Amperes",
+      "scope": "This standard specifies requirements for plugs and sockets used in domestic and similar general purposes.",
+      "status": "Current",
+      "sector": "Electrotechnical",
+      "certifications": [
+        "ISI Mark"
+      ],
+      "icsCode": "29.120.30",
+      "amendments": [],
+      "normativeReferences": []
+    },
+    {
+      "id": "is-302-1",
+      "isNumber": "IS 302 : Part 1",
+      "year": 2008,
+      "title": "Safety of Household and Similar Electrical Appliances - Part 1: General Requirements",
+      "scope": "This standard deals with the safety of electrical appliances for household and similar purposes, their rated voltage being not more than 250 V for single-phase appliances.",
+      "status": "Current",
+      "sector": "Electrotechnical",
+      "certifications": [
+        "ISI Mark"
+      ],
+      "icsCode": "13.120",
+      "amendments": [],
+      "normativeReferences": []
+    },
+    {
+      "id": "is-10500",
+      "isNumber": "IS 10500",
+      "year": 2012,
+      "title": "Drinking Water - Specification",
+      "scope": "This standard prescribes the requirements and the methods of sampling and test for drinking water (tap water/piped supply).",
+      "status": "Current",
+      "sector": "Food and Agriculture",
+      "certifications": [],
+      "icsCode": "13.060.20",
+      "amendments": [],
+      "normativeReferences": []
+    },
+    {
+      "id": "is-2189",
+      "isNumber": "IS 2189",
+      "year": 2008,
+      "title": "Selection, Installation and Maintenance of Automatic Fire Detection and Alarm System - Code of Practice",
+      "scope": "This standard covers the planning, design, installation, and maintenance of fire detection and alarm systems in buildings.",
+      "status": "Current",
+      "sector": "Civil Engineering",
+      "certifications": [],
+      "icsCode": "13.220.20",
+      "amendments": [],
+      "normativeReferences": []
+    },
+    {
+      "id": "is-13620",
+      "isNumber": "IS 13620",
+      "year": 1993,
+      "title": "Fusion Bonded Epoxy Coated Reinforcing Bars - Specification",
+      "scope": "This standard specifies requirements for fusion bonded epoxy coated deformed and plain steel bars for concrete reinforcement, used in corrosive environments.",
+      "status": "Current",
+      "sector": "Metallurgical Engineering",
+      "certifications": [
+        "ISI Mark"
+      ],
+      "icsCode": "77.140.15",
+      "amendments": [],
+      "normativeReferences": [
+        "IS 1786"
+      ]
+    },
+    {
+      "id": "is-15652",
+      "isNumber": "IS 15652",
+      "year": 2006,
+      "title": "Insulating Mats for Electrical Purposes - Specification",
+      "scope": "This standard covers the requirements for insulating mats made of elastomer for use as floor covering for the protection of workers on AC and DC installations.",
+      "status": "Current",
+      "sector": "Electrotechnical",
+      "certifications": [
+        "ISI Mark"
+      ],
+      "icsCode": "29.260.99",
+      "amendments": [],
+      "normativeReferences": []
+    },
+    {
+      "id": "is-16240",
+      "isNumber": "IS 16240",
+      "year": 2015,
+      "title": "Reverse Osmosis (RO) Based Point-of-Use Water Treatment System - Specification",
+      "scope": "This standard prescribes requirements for RO water purifiers for domestic use to reduce total dissolved solids (TDS) and other contaminants.",
+      "status": "Current",
+      "sector": "Chemical",
+      "certifications": [
+        "ISI Mark"
+      ],
+      "icsCode": "13.060.20",
+      "amendments": [],
+      "normativeReferences": [
+        "IS 10500"
+      ]
     }
   ]
 }
