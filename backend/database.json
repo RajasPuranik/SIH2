@@ -234,6 +234,78 @@
       "icsCode": "00.000",
       "amendments": [],
       "normativeReferences": []
+    },
+    {
+      "id": "mock-led",
+      "isNumber": "IS 10322 : Part 5 : Sec 3",
+      "year": 2012,
+      "title": "Luminaires - Part 5: Particular Requirements - Section 3: Luminaires for Road and Street Lighting",
+      "scope": "This standard specifies requirements for luminaires for road and street lighting, including LED based street lighting luminaires, for use with electrical light sources on supply voltages not exceeding 1 000 V.",
+      "status": "Current",
+      "sector": "Electrotechnical",
+      "certifications": [
+        "CRS"
+      ],
+      "icsCode": "29.140.40",
+      "amendments": [],
+      "normativeReferences": []
+    },
+    {
+      "id": "mock-cement",
+      "isNumber": "IS 1489 : Part 1",
+      "year": 2015,
+      "title": "Portland Pozzolana Cement - Specification - Part 1: Fly Ash Based",
+      "scope": "This standard covers the manufacture and chemical and physical requirements of portland pozzolana cement (fly ash based) for general construction, including bridge works and mass concrete.",
+      "status": "Current",
+      "sector": "Civil Engineering",
+      "certifications": [
+        "ISI Mark"
+      ],
+      "icsCode": "91.100.10",
+      "amendments": [],
+      "normativeReferences": []
+    },
+    {
+      "id": "mock-pcb",
+      "isNumber": "IS 16053",
+      "year": 2013,
+      "title": "Printed Boards - Generic Specification for Multilayer Printed Boards",
+      "scope": "This standard applies to multilayer printed boards (PCB assemblies) irrespective of their method of manufacture, intended for defence and aerospace electronics.",
+      "status": "Current",
+      "sector": "Electronics and Information Technology",
+      "certifications": [],
+      "icsCode": "31.180",
+      "amendments": [],
+      "normativeReferences": []
+    },
+    {
+      "id": "mock-water",
+      "isNumber": "IS 14543",
+      "year": 2016,
+      "title": "Packaged Drinking Water (Other Than Packaged Natural Mineral Water) — Specification",
+      "scope": "This standard prescribes the requirements and the methods of sampling and test for packaged drinking water for municipal supply and general consumption.",
+      "status": "Current",
+      "sector": "Food and Agriculture",
+      "certifications": [
+        "ISI Mark",
+        "FSSAI"
+      ],
+      "icsCode": "13.060.20",
+      "amendments": [],
+      "normativeReferences": []
+    },
+    {
+      "id": "mock-fabric",
+      "isNumber": "IS 15852",
+      "year": 2009,
+      "title": "Polyester-Cotton Blended Uniform Fabric — Specification",
+      "scope": "This standard prescribes the constructional particulars and other requirements for polyester-cotton blended uniform fabric (120 GSM) used for corporate and institutional wear.",
+      "status": "Current",
+      "sector": "Textiles",
+      "certifications": [],
+      "icsCode": "59.080.30",
+      "amendments": [],
+      "normativeReferences": []
     }
   ]
 }
